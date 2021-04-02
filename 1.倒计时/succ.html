@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 0 auto;
+            width: 500px;
+        }
+        #jumpTo {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>支付成功</h2>
+        <span id="jumpTo">10</span>秒后自动返回首页
+        <p><button>立即返回</button></p>
+    </div>
+    <script>
+        // 点击返回按钮跳转到原来的
+        let backButton = document.getElementsByTagName("button")[0];
+        backButton.onclick = function() {
+            location.href = "/JavaScript案例/1.倒计时/confirm.html";
+        };
+        // 加载页面时，触发定时器
+        window.onload = function() {
+            let timer = 10;
+            setInterval(() => {
+                timer--;
+                let content = document.getElementById("jumpTo");
+                content.innerText = timer;
+                if (timer == 0) {
+                    location.href = "/JavaScript案例/1.倒计时/confirm.html";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
